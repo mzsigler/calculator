@@ -11,20 +11,21 @@ body {
     margin-top: 100px;
     width: 40vw;
     height: 60vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40pt;
 }
 
 #display {
     display: flex;
     padding: 8px;
     flex: 2;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40pt;
     justify-content: flex-end;
     align-items: flex-end;
     
 }
 
 #row-one {
+    display: flex;
     flex: 1;
     padding: 8px;
     min-height: 50px;
@@ -50,4 +51,16 @@ body {
     padding: 8px;
     min-height: 50px;
     border: 1px solid green;
+}
+
+.btn {
+    border: 1px solid blue;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#c {
+    flex: 1;
 }
