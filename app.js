@@ -3,12 +3,13 @@ const clear = document.getElementById('clear');
 const seven = document.getElementById('seven');
 const eight = document.getElementById('eight');
 const plus = document.getElementById('plus');
+let operand = "";
 
 let displayValue = 0;
 display.innerText = `${displayValue}`;
 
 function sevenTap() {
-    displayValue = 7;
+    displayValue ? displayValue+= '7' : displayValue = '7' ;
     display.innerText = `${displayValue}`;
 };
 
@@ -27,6 +28,11 @@ function clearTap() {
     display.innerText = `${displayValue}`;
 }
 
+function plusTap() {
+    operand = "addition";
+    display.innertext += ` + `
+}
+
 
 seven.addEventListener('click', function(){
     sevenTap();
@@ -38,10 +44,13 @@ eight.addEventListener('click', function() {
 
 nine.addEventListener('click', function() {
     nineTap();
-})
+});
 
 
 clear.addEventListener('click', function(){
     clearTap();
 });
 
+plus.addEventListener('click', function(){
+    plusTap();
+});
