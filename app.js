@@ -3,35 +3,80 @@ const clear = document.getElementById('clear');
 const seven = document.getElementById('seven');
 const eight = document.getElementById('eight');
 const plus = document.getElementById('plus');
-let operand = "";
+const multiply = document.getElementById('multiply');
+const equals = document.getElementById('equals');
 
-let displayValue = 0;
-display.innerText = `${displayValue}`;
+let operand = "";
+let first = "";
+let second = "";
+
+display.innerText = `${first}`;
+
+function operate(){
+
+    let a = parseInt(first);
+    let b = parseInt(second);
+
+    if (operand == "add") {
+        let result = a + b;
+        display.innerText = `${result}`;
+    }
+
+    if(operand == "multiply") {
+        let result = a * b;
+        display.innerText = `${result}`;
+    }
+
+}
+
 
 function sevenTap() {
-    displayValue ? displayValue+= '7' : displayValue = '7' ;
-    display.innerText = `${displayValue}`;
+    if (!operand) {
+    first ? first+= '7' : first = '7' ;
+    display.innerText = `${first}`;
+    }
+
+    if (operand) {
+        second ? second+= '7' : second = '7' ;
+        display.innerText = `${second}`;
+    }
+    
 };
 
 function eightTap() {
-    displayValue = 8;
-    display.innerText = `${displayValue}`;
+    if (!operand) {
+        first ? first+= '8' : first = '8' ;
+        display.innerText = `${first}`;
+        }
+    
+        if (operand) {
+            second ? second+= '8' : second = '8' ;
+            display.innerText = `${second}`;
+        }
 };
 
 function nineTap() {
-    displayValue = 9;
-    display.innerText = `${displayValue}`;
+    first ? first+= '9' : first = '9' ;
+    display.innerText = `${first}`;
 };
 
 function clearTap() {
-    displayValue = 0;
-    display.innerText = `${displayValue}`;
+    first = 0;
+    second = "";
+    result = "";
+    operand = ""
+    display.innerText = `${first}`;
 }
 
 function plusTap() {
-    operand = "addition";
-    display.innertext += ` + `
+    operand = "add";
 }
+
+function multiplyTap() {
+    operand = "multiply";
+}
+
+
 
 
 seven.addEventListener('click', function(){
@@ -54,3 +99,12 @@ clear.addEventListener('click', function(){
 plus.addEventListener('click', function(){
     plusTap();
 });
+
+multiply.addEventListener('click', function() {
+    multiplyTap();
+})
+
+
+equals.addEventListener('click', function(){
+    operate();
+})
